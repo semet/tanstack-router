@@ -1,0 +1,6 @@
+export * from './header'
+export * from './hero-section'
+export * from './portfolio'
+export * from './experience'
+export * from './about'
+export * from './footer'
