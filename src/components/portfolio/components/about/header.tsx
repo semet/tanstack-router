@@ -1,38 +1,14 @@
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
-
-import { MyFace } from './my-face'
+import { motion } from 'framer-motion'
 
 export const Header = () => {
-  const ref = useRef(null)
-  const isInVew = useInView(ref, { once: true })
-  const containerVariants = {
-    visible: {
-      transition: {
-        staggerChildren: 0.01
-      }
-    },
-    hidden: {}
-  }
-
-  const childVariants = {
-    hidden: {
-      opacity: 0,
-      y: 70
-    },
-    visible: {
-      opacity: 1,
-      y: 0
-    }
-  }
   const TITLE = 'About'
-
   return (
-    <div
-      ref={ref}
-      className="relative z-[999] flex w-[50%] flex-col justify-start"
-    >
-      <div className="flex flex-col items-start py-0">
+    <motion.div className="relative flex w-[60%] flex-col justify-start">
+      <motion.div
+        whileInView={'visible'}
+        transition={{ duration: 0.5 }}
+        className="flex flex-col items-start gap-4 py-0"
+      >
         <h1 className="text-5xl font-bold text-white">
           {TITLE.split('').map((letter, index) => {
             return (
@@ -40,42 +16,34 @@ export const Header = () => {
                 key={index}
                 className="inline-block"
                 initial={{ opacity: 0, y: -100 }}
-                animate={isInVew ? { opacity: 1, y: 0 } : {}}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  rotate: [0, -150 * index, 0]
+                }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                style={{
+                  textShadow: '4px 4px 2px rgba(0,0,0,0.6)'
+                }}
               >
                 {letter === ' ' ? '\u00A0' : letter}
               </motion.span>
             )
           })}
         </h1>
-        <motion.div
-          className="prose-lg text-white"
-          initial="hidden"
-          animate={isInVew ? 'visible' : 'hidden'}
-          variants={containerVariants}
+        <motion.p
+          className="prose-lg rounded-lg bg-white p-4 text-slate-500 shadow"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 1 }}
         >
-          {TEXT.split('').map((char, i) => (
-            <motion.span
-              className="inline-block"
-              key={i}
-              variants={childVariants}
-              transition={{
-                duration: 0.5,
-                ease: 'easeInOut',
-                type: 'spring'
-              }}
-            >
-              {char === ' ' ? '\u00A0' : char}
-            </motion.span>
-          ))}
-        </motion.div>
-      </div>
-      <div className="relative h-full content-end overflow-hidden">
-        <MyFace />
-      </div>
-    </div>
+          {TEXT}
+        </motion.p>
+      </motion.div>
+    </motion.div>
   )
 }
 
 const TEXT =
-  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum laudantium facere nam. Quia culpa quis porro molestias! Corporis aliquam neque velit illum, nisi ipsum! Quo aperiam similique officia vel cum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed vero ea ex obcaecati culpa. Voluptates, ad reprehenderit. Tempore ullam nobis rerum, non asperiores praesentium est nisi tempora obcaecati qui numquam?'
+  'I started coding more than 10 years ago when the good old PHP and Double-clicking index.html was a thing. I then learned more advance languages like HTML (I am one of those who believe HTML is a Programming Language itself 😂), CSS, JavsScript, TypeScript, MySql and many more. I also spent my time learning some stuffs like Reactjs, Vuejs, Nextjs, Nodejs (especially Express), and a good amount of time diving Rest API. But my primary Language is Javascript (React/Nextjs) and PHP (Laravel) . I know GraphQL a little bit and I keep myself Up-to-Date with the information about the languages and technologies that I use. I claim myself to be one of those Fullstack Developer because I can do Front-end Design, good understanding of Rest API and how to connect both. By the way, I also know Laravel very well (incase you need a PHP Developer). I currently work in a leading tech company called Synergyse Tech. I work full time as Frontend Developer by using Nextjs as the main framework.'

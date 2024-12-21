@@ -9,7 +9,7 @@ export const Route = createLazyFileRoute('/')({
 function Index() {
   const [items, setItems] = useState(dummyData)
   return (
-    <motion.div className="container mx-auto mt-10 h-[50vh] max-w-screen-sm rounded bg-slate-100 p-4">
+    <motion.div className="container mx-auto mt-10 max-w-screen-sm rounded bg-slate-100 p-4">
       <Reorder.Group
         axis="y"
         values={items}
@@ -56,5 +56,10 @@ const dummyData = [
     id: 5,
     href: 'hero-one',
     name: 'Animated X Direction'
+  },
+  {
+    id: 6,
+    href: 'portfolio',
+    name: 'Portfolio'
   }
 ]

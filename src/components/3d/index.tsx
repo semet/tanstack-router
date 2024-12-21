@@ -6,7 +6,8 @@ type ModelProps = JSX.IntrinsicElements['group']
 
 export const Model: React.FC<ModelProps> = (props) => {
   const group = useRef<Group>(null)
-  const { nodes, materials, animations } = useGLTF('/looping_snow_2.glb')
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { nodes, materials, animations } = useGLTF('/looping_snow_2.glb') as any
   const { actions } = useAnimations(animations, group)
 
   useEffect(() => {

@@ -58,11 +58,11 @@ export const Portfolio = () => {
               }}
             />
             <h1 className="max-w-xl text-center text-5xl font-bold capitalize text-stone-950 md:text-6xl">
-              Lorem Web Design
+              My work in action
             </h1>
             <p className="my-6 max-w-xl text-center text-sm text-stone-600 md:text-base">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo,
-              minus nisi? Quod praesentium quaerat possimus.
+              My work in action blends creativity and functionality, showcasing
+              seamless, user-focused design and development solutions.
             </p>
             <div className="flex items-center gap-4">
               <button className="bg-violet-600 px-4 py-2 font-medium text-white transition-colors hover:bg-violet-800">

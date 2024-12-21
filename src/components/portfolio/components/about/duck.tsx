@@ -1,7 +1,8 @@
 import { OrbitControls, useGLTF } from '@react-three/drei'
 import { motion } from 'framer-motion-3d'
+import { Suspense } from 'react'
 
-import { useMouse } from './use-mouse'
+import { useMouse } from '@/hooks'
 
 export const Duck = () => {
   const mouse = useMouse()
@@ -29,8 +30,9 @@ export const Duck = () => {
       />
       <ambientLight />
       <OrbitControls enableZoom={false} />
-
-      <DuckObject />
+      <Suspense fallback={null}>
+        <DuckObject />
+      </Suspense>
     </motion.mesh>
   )
 }

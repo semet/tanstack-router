@@ -1,7 +1,7 @@
 import { motion, useMotionValueEvent } from 'framer-motion'
 import { useRef, useState } from 'react'
 
-import { useMouse } from './use-mouse'
+import { useMouse } from '@/hooks'
 
 export const MyFace = () => {
   const ref = useRef<SVGSVGElement>(null)
