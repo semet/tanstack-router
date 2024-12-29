@@ -6,7 +6,9 @@ import {
   useMotionTemplate,
   useMotionValue,
   useScroll,
-  useTransform
+  useSpring,
+  useTransform,
+  useVelocity
 } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 
@@ -16,8 +18,24 @@ export const Experience = () => {
   const { scrollYProgress } = useScroll({
     target: targetRef
   })
+  const scrollVelocity = useVelocity(scrollYProgress)
 
-  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-100%'])
+  const xRaw = useTransform(scrollYProgress, [0, 0.5], [0, -2100])
+  const x = useSpring(xRaw, {
+    damping: 100,
+    stiffness: 500,
+    bounce: 0
+  })
+  const skewXRaw = useTransform(
+    scrollVelocity,
+    [-0.5, 0.5],
+    ['-10deg', '10deg']
+  )
+  const skewX = useSpring(skewXRaw, {
+    damping: 100,
+    stiffness: 500,
+    bounce: 0
+  })
   const color = useMotionValue(AURORA[0])
   const backgroundImage = useMotionTemplate`linear-gradient(164deg, ${color} 0%, #00bdff 82%)`
 
@@ -37,7 +55,7 @@ export const Experience = () => {
       style={{
         backgroundImage
       }}
-      className="relative h-[500vh]"
+      className="relative h-[250vh]"
     >
       <div className="absolute inset-0 z-0">
         <Canvas>
@@ -69,6 +87,7 @@ export const Experience = () => {
             return (
               <Card
                 {...card}
+                skewX={skewX}
                 key={card.id}
               />
             )

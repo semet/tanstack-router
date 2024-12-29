@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@gsap/react':
+    specifier: ^2.1.1
+    version: 2.1.1
+  '@heroicons/react':
+    specifier: ^2.2.0
+    version: 2.2.0(react@18.3.1)
   '@hookform/resolvers':
     specifier: ^3.9.1
     version: 3.9.1(react-hook-form@7.54.1)
@@ -38,6 +44,9 @@ dependencies:
   framer-motion-3d:
     specifier: ^11.15.0
     version: 11.15.0(@react-three/fiber@8.17.10)(react-dom@18.3.1)(react@18.3.1)(three@0.171.0)
+  gsap:
+    specifier: ^3.12.5
+    version: 3.12.5
   postcss:
     specifier: ^8.4.49
     version: 8.4.49
@@ -844,6 +853,21 @@ packages:
     dependencies:
       levn: 0.4.1
     dev: true
+
+  /@gsap/react@2.1.1:
+    resolution: {integrity: sha512-apGPRrmpqxvl1T6Io1KgT8tFU+IuACI6z4zmT7t8+PASserJeLVRFJdSNUFA2Xb/eVkZI1noE8LIrY/w/oJECw==}
+    dependencies:
+      gsap: 3.12.5
+      react: 18.3.1
+    dev: false
+
+  /@heroicons/react@2.2.0(react@18.3.1):
+    resolution: {integrity: sha512-LMcepvRaS9LYHJGsF0zzmgKCUim/X3N/DQKc4jepAXJ7l8QxJ1PmxJzqplF2Z3FE4PqBAIGyJAQ/w4B5dsqbtQ==}
+    peerDependencies:
+      react: '>= 16 || ^19.0.0-rc'
+    dependencies:
+      react: 18.3.1
+    dev: false
 
   /@hookform/resolvers@3.9.1(react-hook-form@7.54.1):
     resolution: {integrity: sha512-ud2HqmGBM0P0IABqoskKWI6PEf6ZDDBZkFqe2Vnl+mTHCEHzr3ISjjZyCwTjC/qpL25JC9aIDkloQejvMeq0ug==}
@@ -2832,6 +2856,10 @@ packages:
   /graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
+
+  /gsap@3.12.5:
+    resolution: {integrity: sha512-srBfnk4n+Oe/ZnMIOXt3gT605BX9x5+rh/prT2F1SsNJsU1XuMiP0E2aptW481OnonOGACZWBqseH5Z7csHxhQ==}
+    dev: false
 
   /has-bigints@1.0.2:
     resolution: {integrity: sha512-tSvCKtBr9lkF0Ex0aQiP9N+OpV4zi2r/Nee5VkRDbaqv35RLYMzbwQfFSZZH0kR+Rd6302UJZ2p/bJCEoR3VoQ==}

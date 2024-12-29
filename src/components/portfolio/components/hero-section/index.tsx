@@ -4,6 +4,7 @@ import {
   useMotionTemplate,
   useMotionValue,
   useScroll,
+  useSpring,
   useTransform
 } from 'framer-motion'
 import { useEffect } from 'react'
@@ -15,7 +16,13 @@ import { Stacks } from './stack'
 
 export const HeroSection = () => {
   const { scrollYProgress } = useScroll()
-  const x = useTransform(scrollYProgress, [0, 0.5], ['0%', '-100%'])
+  const xRaw = useTransform(scrollYProgress, [0, 0.5], [0, -1000])
+  const x = useSpring(xRaw, {
+    damping: 100,
+    stiffness: 400,
+    mass: 3,
+    bounce: 0
+  })
   const textContainerY = useTransform(scrollYProgress, [0, 0.5], ['0%', '150%'])
   const color = useMotionValue(AURORA[0])
   const backgroundImage = useMotionTemplate`linear-gradient(180deg, rgba(63,94,251,1) 24%, ${color} 100%)`

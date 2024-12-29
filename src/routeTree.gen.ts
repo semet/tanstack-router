@@ -16,8 +16,10 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as SplashDotsImport } from './routes/splash-dots'
 import { Route as ReactTreeImport } from './routes/react-tree'
 import { Route as PortfolioImport } from './routes/portfolio'
+import { Route as HoverSvgImport } from './routes/hover-svg'
 import { Route as HeroOneImport } from './routes/hero-one'
 import { Route as HeroGridScrollImport } from './routes/hero-grid-scroll'
+import { Route as GsapAnimationImport } from './routes/gsap-animation'
 import { Route as BackgroundMaskingImport } from './routes/background-masking'
 import { Route as AuroraGradientImport } from './routes/aurora-gradient'
 
@@ -52,6 +54,12 @@ const PortfolioRoute = PortfolioImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const HoverSvgRoute = HoverSvgImport.update({
+  id: '/hover-svg',
+  path: '/hover-svg',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const HeroOneRoute = HeroOneImport.update({
   id: '/hero-one',
   path: '/hero-one',
@@ -61,6 +69,12 @@ const HeroOneRoute = HeroOneImport.update({
 const HeroGridScrollRoute = HeroGridScrollImport.update({
   id: '/hero-grid-scroll',
   path: '/hero-grid-scroll',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const GsapAnimationRoute = GsapAnimationImport.update({
+  id: '/gsap-animation',
+  path: '/gsap-animation',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -107,6 +121,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BackgroundMaskingImport
       parentRoute: typeof rootRoute
     }
+    '/gsap-animation': {
+      id: '/gsap-animation'
+      path: '/gsap-animation'
+      fullPath: '/gsap-animation'
+      preLoaderRoute: typeof GsapAnimationImport
+      parentRoute: typeof rootRoute
+    }
     '/hero-grid-scroll': {
       id: '/hero-grid-scroll'
       path: '/hero-grid-scroll'
@@ -119,6 +140,13 @@ declare module '@tanstack/react-router' {
       path: '/hero-one'
       fullPath: '/hero-one'
       preLoaderRoute: typeof HeroOneImport
+      parentRoute: typeof rootRoute
+    }
+    '/hover-svg': {
+      id: '/hover-svg'
+      path: '/hover-svg'
+      fullPath: '/hover-svg'
+      preLoaderRoute: typeof HoverSvgImport
       parentRoute: typeof rootRoute
     }
     '/portfolio': {
@@ -158,8 +186,10 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
   '/aurora-gradient': typeof AuroraGradientRoute
   '/background-masking': typeof BackgroundMaskingRoute
+  '/gsap-animation': typeof GsapAnimationRoute
   '/hero-grid-scroll': typeof HeroGridScrollRoute
   '/hero-one': typeof HeroOneRoute
+  '/hover-svg': typeof HoverSvgRoute
   '/portfolio': typeof PortfolioRoute
   '/react-tree': typeof ReactTreeRoute
   '/splash-dots': typeof SplashDotsRoute
@@ -170,8 +200,10 @@ export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
   '/aurora-gradient': typeof AuroraGradientRoute
   '/background-masking': typeof BackgroundMaskingRoute
+  '/gsap-animation': typeof GsapAnimationRoute
   '/hero-grid-scroll': typeof HeroGridScrollRoute
   '/hero-one': typeof HeroOneRoute
+  '/hover-svg': typeof HoverSvgRoute
   '/portfolio': typeof PortfolioRoute
   '/react-tree': typeof ReactTreeRoute
   '/splash-dots': typeof SplashDotsRoute
@@ -183,8 +215,10 @@ export interface FileRoutesById {
   '/': typeof IndexLazyRoute
   '/aurora-gradient': typeof AuroraGradientRoute
   '/background-masking': typeof BackgroundMaskingRoute
+  '/gsap-animation': typeof GsapAnimationRoute
   '/hero-grid-scroll': typeof HeroGridScrollRoute
   '/hero-one': typeof HeroOneRoute
+  '/hover-svg': typeof HoverSvgRoute
   '/portfolio': typeof PortfolioRoute
   '/react-tree': typeof ReactTreeRoute
   '/splash-dots': typeof SplashDotsRoute
@@ -197,8 +231,10 @@ export interface FileRouteTypes {
     | '/'
     | '/aurora-gradient'
     | '/background-masking'
+    | '/gsap-animation'
     | '/hero-grid-scroll'
     | '/hero-one'
+    | '/hover-svg'
     | '/portfolio'
     | '/react-tree'
     | '/splash-dots'
@@ -208,8 +244,10 @@ export interface FileRouteTypes {
     | '/'
     | '/aurora-gradient'
     | '/background-masking'
+    | '/gsap-animation'
     | '/hero-grid-scroll'
     | '/hero-one'
+    | '/hover-svg'
     | '/portfolio'
     | '/react-tree'
     | '/splash-dots'
@@ -219,8 +257,10 @@ export interface FileRouteTypes {
     | '/'
     | '/aurora-gradient'
     | '/background-masking'
+    | '/gsap-animation'
     | '/hero-grid-scroll'
     | '/hero-one'
+    | '/hover-svg'
     | '/portfolio'
     | '/react-tree'
     | '/splash-dots'
@@ -232,8 +272,10 @@ export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
   AuroraGradientRoute: typeof AuroraGradientRoute
   BackgroundMaskingRoute: typeof BackgroundMaskingRoute
+  GsapAnimationRoute: typeof GsapAnimationRoute
   HeroGridScrollRoute: typeof HeroGridScrollRoute
   HeroOneRoute: typeof HeroOneRoute
+  HoverSvgRoute: typeof HoverSvgRoute
   PortfolioRoute: typeof PortfolioRoute
   ReactTreeRoute: typeof ReactTreeRoute
   SplashDotsRoute: typeof SplashDotsRoute
@@ -244,8 +286,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
   AuroraGradientRoute: AuroraGradientRoute,
   BackgroundMaskingRoute: BackgroundMaskingRoute,
+  GsapAnimationRoute: GsapAnimationRoute,
   HeroGridScrollRoute: HeroGridScrollRoute,
   HeroOneRoute: HeroOneRoute,
+  HoverSvgRoute: HoverSvgRoute,
   PortfolioRoute: PortfolioRoute,
   ReactTreeRoute: ReactTreeRoute,
   SplashDotsRoute: SplashDotsRoute,
@@ -265,8 +309,10 @@ export const routeTree = rootRoute
         "/",
         "/aurora-gradient",
         "/background-masking",
+        "/gsap-animation",
         "/hero-grid-scroll",
         "/hero-one",
+        "/hover-svg",
         "/portfolio",
         "/react-tree",
         "/splash-dots",
@@ -282,11 +328,17 @@ export const routeTree = rootRoute
     "/background-masking": {
       "filePath": "background-masking.tsx"
     },
+    "/gsap-animation": {
+      "filePath": "gsap-animation.tsx"
+    },
     "/hero-grid-scroll": {
       "filePath": "hero-grid-scroll.tsx"
     },
     "/hero-one": {
       "filePath": "hero-one.tsx"
+    },
+    "/hover-svg": {
+      "filePath": "hover-svg.tsx"
     },
     "/portfolio": {
       "filePath": "portfolio.tsx"

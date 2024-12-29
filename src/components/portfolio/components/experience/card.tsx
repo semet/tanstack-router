@@ -1,6 +1,7 @@
 import {
   animate,
   motion,
+  MotionValue,
   useMotionTemplate,
   useMotionValue
 } from 'framer-motion'
@@ -9,7 +10,11 @@ import { twMerge } from 'tailwind-merge'
 
 const ANGEL_ONE = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 const ANGEL_TWO = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10]
-export const Card: FC<TExperience> = (experience) => {
+export const Card: FC<
+  TExperience & {
+    skewX: MotionValue<number>
+  }
+> = (experience) => {
   const angleOne = useMotionValue(ANGEL_ONE[0])
   const angleTwo = useMotionValue(ANGEL_TWO[0])
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at ${angleOne}% ${angleTwo}%, rgba(0,108,255,1) 0%, rgba(0,241,255,1) 82%)`
@@ -31,9 +36,12 @@ export const Card: FC<TExperience> = (experience) => {
   }, [])
   return (
     <motion.div
-      className={twMerge([
-        'relative left-0 h-[75vh] min-w-[550px] bg-white/80 p-4 shadow'
-      ])}
+      style={{
+        skewX: experience.skewX,
+        rotateZ: experience.skewX,
+        backgroundColor: 'rgba(0, 108, 255, 0.5)'
+      }}
+      className={twMerge(['relative left-0 h-[75vh] min-w-[550px] p-4 shadow'])}
     >
       <motion.div
         className="absolute inset-0 -z-10"
